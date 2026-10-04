@@ -4,54 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bull Brock | Premium Game Shop</title>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#100d0a;color:#fff;line-height:1.6}
+header{background:#17120d;border-bottom:1px solid #8f6b2d;padding:18px 20px;position:sticky;top:0;z-index:10}
+.logo{font-size:25px;font-weight:bold;color:#d9a441;letter-spacing:2px}
+.container{max-width:1000px;margin:auto;padding:25px 18px}
+.hero{text-align:center;padding:55px 15px 35px}
+.badge{display:inline-block;border:1px solid #d9a441;color:#d9a441;padding:6px 14px;border-radius:20px;font-size:12px;letter-spacing:1px;margin-bottom:18px}
+.hero h1{font-size:42px;line-height:1.15;margin-bottom:14px}
+.hero h1 span{color:#d9a441}
+.hero p{color:#bdb4aa;max-width:600px;margin:auto}
+.card{max-width:520px;margin:25px auto;background:#1b1510;border:1px solid #6d5127;border-radius:18px;padding:24px;box-shadow:0 15px 45px #0008}
+.coin{font-size:70px;text-align:center;margin-bottom:10px}
+.product-title{text-align:center;font-size:26px;color:#fff}
+.server{text-align:center;color:#bdb4aa;margin:5px 0 15px}
+.price{text-align:center;font-size:38px;font-weight:bold;color:#d9a441}
+.status{text-align:center;color:#79d279;font-size:14px;margin:5px 0 20px}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:#d9a441;color:#17120d;font-size:17px;font-weight:bold;padding:14px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.form{display:none;margin-top:20px;border-top:1px solid #493820;padding-top:20px}
+label{display:block;margin:12px 0 6px;color:#d8d0c7}
+input{width:100%;padding:13px;border-radius:10px;border:1px solid #5c4729;background:#100d0a;color:#fff;font-size:16px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:25px auto}
+.trust div{background:#17120d;border:1px solid #3e301f;border-radius:12px;padding:14px;text-align:center;color:#c8c0b8;font-size:13px}
+footer{text-align:center;color:#756c63;padding:35px 15px}
+@media(max-width:600px){.hero h1{font-size:32px}.trust{grid-template-columns:1fr}.card{padding:20px}}
+</style>
+</head>
+<body>
 
-body{
-font-family:Arial,sans-serif;
-background:#100d0a;
-color:#fff;
-line-height:1.6;
+<header>
+<div class="logo">🐂 BULL BROCK</div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+<div class="badge">PREMIUM GAME SHOP</div>
+<h1>เติมเกมง่าย <span>รวดเร็ว</span><br>และปลอดภัย</h1>
+<p>ร้านเติมเกม Bull Brock สำหรับผู้เล่นที่ต้องการบริการรวดเร็วและใช้งานง่าย</p>
+</section>
+
+<section class="card">
+<div class="coin">🪙</div>
+<h2 class="product-title">Zeny 1,080,000</h2>
+<p class="server">Server: Orc Hero</p>
+<div class="price">฿160</div>
+<div class="status">● พร้อมจำหน่าย</div>
+
+<button class="btn" onclick="showForm()">สั่งซื้อสินค้า</button>
+
+<div class="form" id="orderForm">
+
+<label for="name">ชื่อ</label>
+<input id="name" placeholder="ชื่อของคุณ">
+
+<label for="contact">LINE ID / ช่องทางติดต่อ</label>
+<input id="contact" placeholder="เช่น @yourline">
+
+<label for="character">ชื่อตัวละคร</label>
+<input id="character" placeholder="ชื่อตัวละครในเกม">
+
+<br><br>
+
+<button class="btn" onclick="submitOrder()">ยืนยันคำสั่งซื้อ</button>
+
+</div>
+</section>
+
+<div class="trust">
+<div>⚡ รวดเร็ว</div>
+<div>🔒 ปลอดภัย</div>
+<div>💬 ติดต่อได้</div>
+</div>
+
+</main>
+
+<footer>
+© 2026 Bull Brock — Premium Game Shop
+</footer>
+
+<script>
+function showForm(){
+document.getElementById('orderForm').style.display='block';
+document.getElementById('orderForm').scrollIntoView({behavior:'smooth'})
 }
 
-header{
-background:#17120d;
-border-bottom:1px solid #8f6b2d;
-padding:18px 20px;
-position:sticky;
-top:0;
-z-index:10;
+function submitOrder(){
+const name=document.getElementById('name').value.trim();
+const contact=document.getElementById('contact').value.trim();
+const character=document.getElementById('character').value.trim();
+
+if(!name||!contact||!character){
+alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+return
 }
 
-.logo{
-font-size:25px;
-font-weight:bold;
-color:#d9a441;
-letter-spacing:2px;
+alert('รับคำสั่งซื้อแล้ว\nสินค้า: Zeny 1,080,000\nราคา: 160 บาท\nชื่อลูกค้า: '+name+'\nตัวละคร: '+character+'\nช่องทางติดต่อ: '+contact);
 }
+</script>
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:25px 18px;
-}
-
-.hero{
-text-align:center;
-padding:55px 15px 35px;
-}
-
-.badge{
-display:inline-block;
-border:1px solid #d9a441;
-color:#d9a441;
-padding:6px 14px;
-border-radius:20px;
-font-size:12px;
-letter-spacing:1px;
-margin-bottom:18px;
-}
-
-.hero h1{
-font-size:
+</body>
+</html>
